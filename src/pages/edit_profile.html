@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"/>
+        <meta name="description" content="" />
+        <title>Edit Profile</title>
+    </head>
+    <body>
+        <div class="header-place-holder">
+            <div class="vanilla-container">
+                <section><div></div></section>
+                <div></div>
+            </div>
+        </div>
+        <div class="vanilla-container">
+            <div class="edit-profile">
+                <div>
+                    <section>
+                        <div id="profilePicChangeButton">
+                            <img id="profilePicViewer" src="http://localhost/paintopaedia_api/api/images/static/defualt_user_profile_pricture.png"/>
+                            <div>
+                                <button>click to change</button>
+                            </div>
+                            <input id="profilePicInputFile" type="file" accept="images/*" style="display: none !important;"/>
+                        </div>
+                    </section>
+                    <section>
+                        <div><label>email</label><input id="emailInput" type="text" placeholder="email"/></div>
+                        <div><label>new password</label><input id="passwordInput" type="password" placeholder="new password"/></div>
+                        <div><label>first name</label><input id="firstNameInput" type="text" placeholder="first name"/></div>
+                        <div><label>last name</label><input id="lastNameInput" type="text" placeholder="last name"/></div>
+                        <div><button id="editButton">SAVE</button></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

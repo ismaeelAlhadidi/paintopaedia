@@ -1,0 +1,109 @@
+@import "./default";
+@import "./posts";
+
+$profileImageSize: 220px;
+
+body > .posts:nth-of-type(2) {
+    padding-top: 50px;
+}
+body > .profile-template {
+    padding-top: 80px;
+    padding-bottom: 5px;
+    text-align: #{$nauralAlign};
+    & > div {
+        text-align: #{$nauralAlign};
+        background-color: transparent;
+        position: relative;
+        & > div {
+            &:first-of-type {
+                position: absolute;
+                #{$nauralAlign}: $defaultFontSize*2;
+                & > img {
+                    @extend %no-select;
+                    border-radius: 50%;
+                    border: $defaultBorder;
+                    width: $profileImageSize;
+                    height: $profileImageSize;
+                    cursor: pointer;
+                }
+            }
+            &:nth-of-type(2) {
+                height: $profileImageSize;
+                width: 100%;
+                padding: $defaultFontSize*1.5;
+                padding-#{$nauralAlign}: 16*2+100+$profileImageSize;
+                & > div {
+                    padding: $defaultFontSize;
+                    & > span {
+                        font-size: $defaultFontSize*1.5;
+                    }
+                    & > button {
+                        @extend %default-button;
+                        font-size: $defaultFontSize*0.8;
+                        background-color: #fff;
+                    }
+                }
+                & > section {
+                    display: inline-block;
+                    padding: $defaultFontSize;
+                    &:not(:first-of-type) {
+                        @extend %no-select;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.user-name-place-holder {
+    height: $defaultFontSize*1.5;
+    display: inline-block;
+    width: 100px;
+    @extend %place-holder;
+}
+
+@media (max-width: 992px) {
+    $profileImageSize: 200px;
+    body > .profile-template {
+
+        & > div {
+            & > div {
+                &:first-of-type {
+                    & > img {
+                        width: $profileImageSize;
+                        height: $profileImageSize;
+                    }
+                }
+                &:nth-of-type(2) {
+                    height: $profileImageSize;
+                    padding-bottom: 0;
+                    padding-#{$nauralAlign}: 16*2+45+$profileImageSize;
+                    & > div {
+                        padding: $defaultFontSize*0.5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    body > .profile-template {
+
+        & > div {
+            & > div {
+                &:first-of-type {
+                    text-align: center;
+                    position: static;
+                }
+                &:nth-of-type(2) {
+                    & > div {
+                        text-align: center;
+                    }
+                    padding-#{$nauralAlign}: $defaultFontSize*1.5;
+                }
+            }
+        }
+    }
+}

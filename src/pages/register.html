@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height"/>
+        <meta name="description" content="" />
+        <title>Register</title>
+    </head>
+    <body>
+        <div class="not-authenticated-header" >
+            <div class="vanilla-container">
+                <div><button id="goToLoginButton">login</button><button id="goToRegisterButton">register</button></div>
+                <div class="header-logo"><a><img src="http://localhost/paintopaedia_api/api/images/static/paint_logo.png"/></a></div>
+            </div>
+        </div>
+        <div class="vanilla-container">
+            <div class="edit-profile">
+                <div>
+                    <section>
+                        <div id="profilePicChangeButton">
+                            <img id="profilePicViewer" src="http://localhost/paintopaedia_api/api/images/static/defualt_user_profile_pricture.png"/>
+                            <div>
+                                <button>click to change</button>
+                            </div>
+                            <input id="profilePicInputFile" type="file" accept="images/*" style="display: none !important;"/>
+                        </div>
+                    </section>
+                    <section>
+                        <div><label>first name</label><input id="firstNameInput" type="text" placeholder="first name"/></div>
+                        <div><label>last name</label><input id="lastNameInput" type="text" placeholder="last name"/></div>
+                        <div><label>email</label><input id="emailInput" type="text" placeholder="email"/></div>
+                        <div><label>password</label><input id="passwordInput" type="password" placeholder="password"/></div>
+                        <div><label>confirm pass</label><input id="confirmPasswordInput" type="password" placeholder="confirm password"/></div>
+                        <div><button id="registerButton">Register</button></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

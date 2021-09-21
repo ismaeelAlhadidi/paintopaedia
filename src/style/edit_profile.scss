@@ -1,0 +1,151 @@
+@import "./default";
+
+$profileImageSize: 220px;
+$editProfileTemplateInnerContainerWidth: 320px; 
+
+%image-properties {
+    border-radius: 50%;
+    border: $defaultBorder;
+    width: $profileImageSize;
+    height: $profileImageSize;
+}
+
+.edit-profile {
+    padding: 100px 0;
+    & > div {
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        width: $editProfileTemplateInnerContainerWidth+100;
+        padding: 10px 0 30;
+        text-align: center;
+
+        @extend %default-section;
+
+        & > section {
+            display: block;
+            margin: $defaultFontSize auto;
+            width: $editProfileTemplateInnerContainerWidth;
+            &:first-of-type {
+                & > div {
+                    margin: auto;
+                    @extend %image-properties;
+                    position: relative;
+                    cursor: pointer;
+                    & > img {
+                        @extend %image-properties;
+                    }
+                    & > div {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        @extend %image-properties;
+                        background-color: rgba(0, 0, 0, 0.001);
+                        transition: background-color 0.2s, box-shadow 0.2s;
+                        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+
+                        & > button {
+                            @extend %vanilla-reset;
+                            padding: 7px;
+                            vertical-align: baseline;
+                            margin-top: $profileImageSize/1.5;
+                            background-color: transparent;
+                            color: transparent;
+                            cursor: pointer;
+                            transition: color 0.2s;
+                        }
+                    }
+                    &:hover {
+                        & > div {
+                            background-color: rgba(0, 0, 0, 0.6);
+                            box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.08);
+                            & > button {
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2) {
+                margin-top: $defaultFontSize*2;
+                & > div {
+                    width: $editProfileTemplateInnerContainerWidth;
+                    margin: $defaultFontSize*1.3 auto $defaultFontSize*1.6;
+                    label {
+                        text-align: #{$nauralAlign};
+                        display: inline-block;
+                        width: $editProfileTemplateInnerContainerWidth/4*1.5;
+                    }
+                    input {
+                        @extend %default-small-input;
+                        width: $editProfileTemplateInnerContainerWidth/4*2.5;
+                    }
+
+                    &:last-of-type {
+                        text-align: #{$nauralReverseAlign};
+                        margin-bottom: 0;
+                        button {
+                            @extend %default-button;
+                            width: 80px;
+                            padding: 0.5*$defaultFontSize;
+                            font-size: $defaultFontSize*0.9;
+                            color: $textColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+
+    $editProfileTemplateInnerContainerWidth: 270px;
+
+    .edit-profile {
+        & > div {
+            width: $editProfileTemplateInnerContainerWidth+40;
+    
+            & > section {
+                width: $editProfileTemplateInnerContainerWidth;
+                &:nth-of-type(2) {
+                    & > div {
+                        width: $editProfileTemplateInnerContainerWidth;
+                        label {
+                            display: none;
+                            //width: $editProfileTemplateInnerContainerWidth/4*1.5;
+                        }
+                        input {
+                            width: $profileImageSize;
+                        }
+                        &:last-of-type {
+                            button {
+                                width: 60px;
+                                padding: 0.4*$defaultFontSize;
+                                font-size: $defaultFontSize*0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 376px) {
+    .edit-profile {
+        & > div {
+            width: 95%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
+            & > section {
+                max-width: 90%;
+                &:nth-of-type(2) {
+                    & > div {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

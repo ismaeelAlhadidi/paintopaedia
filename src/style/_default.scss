@@ -1,0 +1,206 @@
+@import "vanilla/src/_variables.scss";
+
+$sectionBoxShadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.10);
+
+$textColor: rgba(0,0,0,.9);
+
+
+%default-small-input {
+    @extend %vanilla-reset;
+    @extend %default-input;
+    padding: 0.2*$defaultFontSize 0.3*$defaultFontSize;
+    color: #0095f6eb;
+    border: #ffffff 1px solid;
+    line-height: 1.2*$defaultLineHeight;
+}
+%default-small-input:focus {
+    box-shadow: 1px 1px 1px 1px #0095f652, -1px -1px 1px 1px #0095f652;
+}
+
+.vanilla-list > main > div {
+    padding: 0 !important;
+}
+
+.vanilla-list > main > div > a {
+    padding: 1.2rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-shadow: $sectionBoxShadow;
+    background-color: #f3f2ef;
+}
+
+.vanilla-header, .not-authenticated-header, .vanilla-notifications, .vanilla-header-user-list, .vanilla-list {
+    z-index: 4;
+}
+
+.vanilla-add-post-template, .vanilla-open-post-template {
+    z-index: 5;
+}
+
+.vanilla-cropper, .vanilla-pop-up-container {
+    z-index: 6;
+}
+
+$headerHeight: 8vh;
+
+$profilePictureSize: $headerHeight/1.2;
+
+$profilePictureSectionWidth: $profilePictureSize*1.6;
+
+$iconSectionWidth: 105px;
+
+%default-section {
+    background-color: #fff;
+    border-radius: 0.8*$defaultFontSize;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+    color: $textColor;
+}
+
+.header-place-holder {
+    @extend %vanilla-reset;
+    height: $headerHeight;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: $defaultPlaceHolderColor;
+    @extend %place-holder;
+    box-shadow: $defaultInnerBoxShadow;
+    & > div {
+
+        height: inherit;
+        position: relative;
+
+        & > section {
+
+            overflow: hidden;
+            height: inherit;
+            position: absolute;
+
+            &:first-of-type {
+                width: $profilePictureSectionWidth;
+                padding: $headerHeight/2-$profilePictureSize/2 $profilePictureSectionWidth/2-$profilePictureSize/2;
+                #{$nauralAlign}: 0;
+                & > div {
+                    animation: place-holder-background-efect-in-gray-back-ground ease-in 4s 0s infinite;
+                    width: $profilePictureSize;
+                    height: $profilePictureSize;
+                    border-radius: 50%;
+                    border: $defaultBorder;
+                }
+            }
+        }
+    }
+}
+
+.not-authenticated-header {
+    @extend %vanilla-reset;
+    @extend %no-select;
+    margin: 0;
+    width: 100vw;
+    height: $headerHeight;
+    background-color: $styleColor;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: $defaultInnerBoxShadow;
+    & > div {
+        position: relative;
+        height: inherit;
+        color: $defaultStyleTextColor;
+        & > div:first-of-type {
+            height: inherit;
+            position: absolute;
+            #{$nauralAlign}: $profilePictureSectionWidth/2-$profilePictureSize/2;
+            width: 1.65*$iconSectionWidth;
+            color: inherit;
+            overflow: hidden;
+            & > button {
+                width: 50%;
+                background-color: transparent;
+                color: inherit;
+                height: 100%;
+                text-align: center;
+                cursor: pointer;
+                border-bottom: 2px solid transparent;
+                transition: border-color 0.5s, background-color 0.5s;
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border-bottom: 2px solid $defaultStyleTextColor;
+                }
+            }
+        }
+        & > .header-logo {
+            overflow: hidden;
+            width: $iconSectionWidth;
+            height: inherit;
+            position: absolute;
+            cursor: pointer;
+            #{$nauralReverseAlign}: $profilePictureSectionWidth/2-$profilePictureSize/2;
+            & > a {
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.post-fetching-place-holder {
+
+    @extend %place-holder;
+
+    @extend %no-select;
+}
+
+.post-place-holder {
+
+    @extend %place-holder;
+
+    @extend %no-select;
+
+    position: relative;
+
+    animation: place-holder-background-efect ease-in 4s 0s infinite, post-place-holder ease-in 3s 0s infinite;
+
+    transition: background-color 0.5s, box-shadow 0.5s;
+
+    & > span {
+
+        color: $styleColor;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+@keyframes post-place-holder {
+
+    0% {
+        box-shadow: 0 0.05em 0.15em 0 $styleColor;
+    }
+
+    25% {
+        box-shadow: 0 0.05em 1em 0px $styleColor;
+    }
+
+    50% {
+        box-shadow: 0 0.05em 0.15em 0 $styleColor;
+    }
+
+    75% {
+        box-shadow: 0 0.05em 1em 0px $styleColor;
+    }
+
+    100% {
+        box-shadow: 0 0.05em 0.15em 0 $styleColor;
+    }
+}
